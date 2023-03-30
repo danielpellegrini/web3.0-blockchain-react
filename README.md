@@ -1,4 +1,6 @@
-<h1 align="center">Krypton - Web 3.0 React Solidity Blockchain Application</h1>
+# Krypton - Web 3.0 React Solidity Blockchain Application
+
+### [Live Site](https://danielpellegrini.github.io/web3.0-blockchain-react/)
 
 ![Krypton](https://i.ibb.co/MPMpry8/Krypton.png)
 
@@ -10,7 +12,6 @@ Krypton is a `Web3.0 Blockchain Application` that enables users to send transact
  - Users can connect their MetaMask wallets to send ethereum through the blockchain.
  - Each transaction will be paired with a gif and it will be forever stored on the blockchain.
  - Users can access and view their latest transactions (and the gifs associated with them).
-
 
 ### Getting Started
 To get a local copy up and running follow these simple example steps.
