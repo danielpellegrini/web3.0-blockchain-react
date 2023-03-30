@@ -1,7 +1,8 @@
-import { React, useState} from 'react';
+import { React, useState, useContext} from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 
+import { TransactionContext } from '../context/TransactionContext';
 import logo from '../../images/logo.png';
 
 // functional component that accept props
@@ -14,7 +15,7 @@ const NavbarItem = ({title, classProps}) => {
 }
 
 const Navbar = () => {
-
+  const { connectWallet, currentAccount } = useContext(TransactionContext);
   const [toggleMenu, setToggleMenu] = useState(false) 
 
   return (
@@ -26,9 +27,15 @@ const Navbar = () => {
         {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
           <NavbarItem  key={ item + index } title={ item } />
         ))}
-        <li className='bg-[#3a8746] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2b6434] transition-all'>
-          Login
-        </li>
+        {!currentAccount && (
+            <button 
+              type='button' 
+              onClick={connectWallet} 
+              className="bg-[#3a8746] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2b6434] transition-all"
+            >
+            <p className='text-white text-base font-semibold'>Login</p>
+            </button>
+        )}
       </ul>
       <div className='flex relative'>
           { toggleMenu 
@@ -43,9 +50,15 @@ const Navbar = () => {
               {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
                 <NavbarItem  key={ item + index } title={ item } classProps="my-2 text-lg" />
               ))}
-               <li className='bg-[#3a8746] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2b6434] transition-all outline-none'>
-                Login
-              </li>
+              {!currentAccount && (
+                  <button 
+                    type='button' 
+                    onClick={connectWallet} 
+                    className="bg-[#3a8746] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2b6434] transition-all"
+                  >
+                  <p className='text-white text-base font-semibold'>Login</p>
+                  </button>
+              )}
             </ul>
           )}
       </div>
