@@ -79,6 +79,13 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+button[disabled] {
+  background-color: #aeaeae;
+  cursor: default;
+  opacity: 0.1;
+  color: rgb(25, 77, 23);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

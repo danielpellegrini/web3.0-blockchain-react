@@ -13,6 +13,7 @@ const Input = ( {placeholder, name, type, value, handleChange} ) => (
   <input 
   placeholder={placeholder}
   type={type}
+  step="0.0001"
   value={value} 
   onChange={(e) => handleChange(e, name)}
   className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
@@ -21,6 +22,7 @@ const Input = ( {placeholder, name, type, value, handleChange} ) => (
 
 const Welcome = () => {
   const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
+  const { addressTo, amount, keyword, message } = formData; // destructure values
 
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData; // destructure values
@@ -99,6 +101,7 @@ const Welcome = () => {
         <button 
           type='button' 
           onClick={handleSubmit}
+          disabled={!amount || !addressTo || !keyword || !message} 
           className="text-white w-full mt-2 border-[1px] p-2 border-[#2b6434] outline-none rounded-full cursor-pointer"
         >
           Send Now
